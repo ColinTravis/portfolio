@@ -149,6 +149,11 @@ html, body {
   height: 1200px;
 }
 
+.clock {
+  font-family: 'alarm clock';
+  color: #FF6E40;
+}
+
 .spacer {
   height: 200px;
 }

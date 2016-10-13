@@ -18,6 +18,61 @@ $(function(){
 });
 //==================END: CHANGE DIV BASED ON TIME OF DAY==================
 
+//=========
+//CLOCK
+//========
+
+$(function(){
+
+
+function hhmmss(hour, min, sec){
+  var hText = ""
+  var mText = ""
+
+  if(hour == 1){
+    hText = ""
+  }
+  if(min == 1){
+    mText = ""
+  }
+  if(hour && min){ //if hour +min is true (Without stating the variable, it always defaults to true)
+    return hour + ":" + min;
+  }
+  if(!hour && min){ //if hours are false, minutes are true, seconds are true. Bang (!) equals not true
+    return min + mText + ":";
+  }
+  if(hour && !min){ //if (hour == true && min == false && sec == true)
+    return hour + hText + ":";
+  }
+  if(hour && min ){
+    return hour + hText + ":" + min + mText;
+  }
+
+}
+
+function formatAMPM(date) {
+  var hours = date.getHours();
+  var minutes = date.getMinutes();
+  var ampm = hours >= 12 ? 'pm' : 'am';
+  hours = hours % 12;
+  hours = hours ? hours : 12; // the hour '0' should be '12'
+  minutes = minutes < 10 ? '0'+minutes : minutes;
+  var strTime = hours + ':' + minutes + ' ' + ampm;
+  return strTime;
+}
+
+setInterval(function(){
+  var currentTime = new Date();
+
+    $('.clock').text(  hhmmss( currentTime.getHours(), currentTime.getMinutes() )) //replace the .hhmmss class with text pulled from the computer clock, and adhering to the format of the hhmmss function
+
+
+},1000)
+
+
+})
+
+
 
 //========================== SCROLLMAGIC =====================================
 
