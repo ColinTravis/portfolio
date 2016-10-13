@@ -1,10 +1,11 @@
 //==================CHANGE DIV BASED ON TIME OF DAY==================
+
 $(function(){
 	var d = new Date();
 	var n = d.getHours();
 	if (n > 19 || n < 6){
-    $('.bedroom_header').toggleClass("night");
-    $('.bedroom_header').html('<p>Different</p>');
+    $('.monitors').toggleClass("night");
+    // $('.bedroom_header').html('<p>Different</p>');
   }
 	  // If time is after 7PM or before 6AM, apply night theme to ‘body’
 
@@ -14,7 +15,8 @@ $(function(){
 	else
 	  // Else use ‘day’ theme
 	  document.body.className = "day";
-});//==================END: CHANGE DIV BASED ON TIME OF DAY==================
+});
+//==================END: CHANGE DIV BASED ON TIME OF DAY==================
 
 
 //========================== SCROLLMAGIC =====================================
@@ -22,20 +24,49 @@ $(function(){
 $(document).ready(function() {
 	//init controller
 var scrollMagicController = new ScrollMagic.Controller();
-var tween1 = TweenMax.to('.block',0.5,{
-	backgroundColor:'red',
-	color:'white'
-});
 
-var scene1 = new ScrollMagic.Scene({
-triggerElement: '.container',
-duration:200
+var monitordivsgrow = new TimelineMax()
+	.to('.monitors',0.5,{
+		backgroundSize:'5000px 5000px',
+		backgroundColor:'red',
+		color:'white'
+		})
+	.to('.monitor_left', 0.5, {
+		margin:'26px',
+		height:'505px',
+		width:'245px',
+		backgroundColor:'blue'
+	},0)
+	.to('.monitor_center', 0.5, {
+		margin:'75px',
+		height:'490px',
+		width:'870px',
+		backgroundColor:'red',
+		fontSize:'30pt'
+	},0)
+	.to('.monitor_right', 0.5, {
+		margin:'26px',
+		height:'505px',
+		width:'245px',
+		backgroundColor:'green'
+	},0);
+
+var enlarge = new ScrollMagic.Scene({
+triggerElement: '.scroll_dial',
+duration:750
 })
-.setPin('.blockpin',{
+
+var monitorpin = new ScrollMagic.Scene({
+	triggerElement: '.scroll_dial',
+	duration:800
+})
+.setPin('.monitors',{
 pushFollowers: false
 })
+.addTo(scrollMagicController);
 
-scene1.setTween(tween1)
-scene1.addTo(scrollMagicController)
-scene1.addIndicators();
+enlarge.setTween(monitordivsgrow)
+.setClassToggle('.monitor_center','scroll')
+enlarge.addTo(scrollMagicController)
+enlarge.addIndicators();
 });
