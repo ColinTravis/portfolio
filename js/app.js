@@ -50,27 +50,48 @@ function hhmmss(hour, min, sec){
 
 }
 
-function formatAMPM(date) {
-  var hours = date.getHours();
-  var minutes = date.getMinutes();
-  var ampm = hours >= 12 ? 'pm' : 'am';
-  hours = hours % 12;
-  hours = hours ? hours : 12; // the hour '0' should be '12'
-  minutes = minutes < 10 ? '0'+minutes : minutes;
-  var strTime = hours + ':' + minutes + ' ' + ampm;
-  return strTime;
-}
-
 setInterval(function(){
-  var currentTime = new Date();
-
-    $('.clock').text(  hhmmss( currentTime.getHours(), currentTime.getMinutes() )) //replace the .hhmmss class with text pulled from the computer clock, and adhering to the format of the hhmmss function
+  var hours = new Date().getHours();
+	var hours = (hours+24)%24;
+	var minutes = new Date().getMinutes();
+	var mid='am';
+	if(hours==0){ //At 00 hours we need to show 12 am
+	hours=12;
+	}
+	else if(hours>12)
+	{
+	hours=hours%12;
+	mid='pm';
+	}
+    $('.clock').text(  hhmmss( hours,
+		minutes, mid )) //replace the .hhmmss class with text pulled from the computer clock, and adhering to the format of the hhmmss function
 
 
 },1000)
 
 
 })
+
+/*
+
+$('.clock').text(function () {
+    var hours = new Date().getHours();
+    var hours = (hours+24)%24;
+		var minutes = new Date().getMinutes();
+    var mid='am';
+    if(hours==0){ //At 00 hours we need to show 12 am
+    hours=12;
+    }
+    else if(hours>12)
+    {
+    hours=hours%12;
+    mid='pm';
+    }
+    alert ('Time now: ' + hours + ":" + minutes + mid);
+});
+
+*/
+
 
 
 
