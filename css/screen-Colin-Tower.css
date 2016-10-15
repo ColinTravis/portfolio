@@ -53,14 +53,10 @@ a img {
   border: none;
 }
 
-article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
   display: block;
 }
 
-@font-face {
-  font-family: alarmClock;
-  src: url("/fonts/alarm_clock.ttf");
-}
 html, body {
   height: 100%;
   margin: 0;
@@ -73,6 +69,7 @@ html, body {
   flex-direction: column;
   min-height: 100vh;
   overflow: hidden;
+  border: 2px solid red;
 }
 
 .flex-body {
@@ -81,6 +78,7 @@ html, body {
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  border: 2px solid lime;
 }
 
 .flex-content {
@@ -90,6 +88,7 @@ html, body {
   font-family: 'Josefin Sans', sans-serif;
   font-weight: 700;
   font-size: 60pt;
+  border: 2px solid cyan;
 }
 
 .bedroom_header {
@@ -100,6 +99,7 @@ html, body {
   font-family: 'Josefin Sans', sans-serif;
   font-weight: 700;
   font-size: 60pt;
+  border: 2px solid cyan;
 }
 
 .monitors {
@@ -110,6 +110,7 @@ html, body {
   font-size: 60pt;
   padding: 5px;
   height: 100vh;
+  border: 3px solid orange;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -121,21 +122,25 @@ html, body {
 
 .monitor_left {
   margin: 16px;
-  height: 155px;
+  border: 2px dashed yellow;
+  height: 145px;
   width: 265px;
 }
 
 .monitor_right {
   margin: 16px;
-  height: 155px;
+  border: 2px dashed blue;
+  height: 145px;
   width: 265px;
 }
 
 .monitor_center {
-  margin: 33px;
-  height: 155px;
-  width: 320px;
+  margin: 16px;
+  border: 2px dashed green;
+  height: 145px;
+  width: 265px;
   overflow: scroll;
+  font-size: 10pt;
 }
 
 .monitor_center.scroll {
@@ -147,87 +152,16 @@ html, body {
   top: 50%;
   width: 200px;
   height: 1200px;
+  border: 2px dashed lime;
 }
 
 .clock {
-  position: absolute;
-  top: 66vh;
-  left: 56vw;
-  height: 50px;
-  font-size: 42px;
-  font-family: 'alarmClock';
+  font-family: 'alarm clock';
   color: #FF6E40;
 }
 
-.works {
-  display: flex;
-  flex-wrap: nowrap;
-  flex-direction: column;
-  align-items: center;
-  height: 100vh;
-}
-
-.piece {
-  margin: 15px 5px 15px 5px;
-  font-size: 15px;
-  text-align: center;
-  font-family: monospace;
-  border-bottom: 1px white solid;
-}
-
-.piece_intro {
-  margin: 20px 0 20px 0px;
-  font-size: 18px;
-  text-align: center;
-  font-family: 'courier new', monospace;
-  font-weight: lighter;
-}
-
-.piece_spacer {
-  margin: 20px 0 20px 0px;
-}
-
-.piece_text {
-  margin: 5px;
-  font-size: 26px;
-  font-family: 'Josefin Sans';
-  font-weight: lighter;
-}
-.piece_text p {
-  text-align: left;
-  line-height: 120%;
-}
-
-.piece_image {
-  margin: 10px;
-  width: 20%;
-  float: left;
-}
-
-.blink {
-  animation: blink-animation 1s steps(5, start) infinite;
-  -webkit-animation: blink-animation 1s steps(5, start) infinite;
-}
-
-@keyframes blink-animation {
-  to {
-    visibility: hidden;
-  }
-}
-@-webkit-keyframes blink-animation {
-  to {
-    visibility: hidden;
-  }
-}
-.table_contents {
-  height: 100%;
-  overflow: scroll;
-  font-size: 18px;
-  text-align: left;
-  margin: 15px;
-}
-.table_contents a {
-  text-decoration: none;
+.spacer {
+  height: 200px;
 }
 
 /* ========== BACKGROUND CHANGES ============= */

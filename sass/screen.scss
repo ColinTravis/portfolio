@@ -4,6 +4,10 @@
 
 @import "compass/reset";
 @import "compass";
+@font-face {
+  font-family: alarmClock;
+  src: url('/fonts/alarm_clock.ttf');
+}
 
 html, body {
   height: 100%;
@@ -69,25 +73,24 @@ html, body {
 }
 .monitor_left{
   margin: 16px;
-  border: 2px dashed yellow;
-  height: 145px;
+  // border: 2px dashed yellow;
+  height: 155px;
   width: 265px;
 }
 
 .monitor_right{
   margin: 16px;
-  border: 2px dashed blue;
-  height: 145px;
+  // border: 2px dashed blue;
+  height: 155px;
   width: 265px;
 }
 .monitor_center{
-  margin: 16px;
+  margin: 33px;
   // flex: 1;
-  border: 2px dashed green;
-  height: 145px;
-  width: 265px;
+  // border: 2px dashed green;
+  height: 155px;
+  width: 320px;
   overflow: scroll;
-  font-size: 10pt;
   // position: absolute;
 }
 .monitor_center.scroll{
@@ -103,11 +106,87 @@ html, body {
 }
 
 .clock {
-  font-family: 'alarm clock';
+  position: absolute;
+  top: 66vh;
+  left: 56vw;
+  height: 50px;
+  font-size: 42px;
+  font-family: 'alarmClock';
   color: #FF6E40;
 }
-.spacer {
-  height: 200px;
+
+.works{
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  align-items: center;
+
+  // border: 2px cyan solid;
+  height: 100vh;
+}
+.piece {
+  // border: 2px red solid;
+  margin: 15px 5px 15px 5px;
+  font-size: 15px;
+  text-align: center;
+  font-family: monospace;
+  border-bottom: 1px white solid;
+}
+
+.piece_intro{
+  // border: 2px purple solid;
+  margin: 20px 0 20px 0px;
+  font-size: 18px;
+  text-align: center;
+  font-family: 'courier new', monospace;
+  font-weight: lighter;
+}
+.piece_spacer{
+  // border: 2px purple solid;
+  margin: 20px 0 20px 0px;
+}
+.piece_text {
+  // border: 2px orange solid;
+  margin: 5px;
+  font-size: 26px;
+  font-family: 'Josefin Sans';
+  font-weight: lighter;
+    p{
+      text-align: left;
+      line-height: 120%;
+    }
+}
+.piece_image {
+  margin: 10px;
+  // border: 2px cyan solid;
+  width: 20%;
+  float: left;
+}
+.blink {
+  animation: blink-animation 1s steps(5, start) infinite;
+  -webkit-animation: blink-animation 1s steps(5, start) infinite;
+}
+@keyframes blink-animation {
+  to {
+    visibility: hidden;
+  }
+}
+@-webkit-keyframes blink-animation {
+  to {
+    visibility: hidden;
+  }
+}
+
+.table_contents{
+  // border: 2px green solid;
+  height: 100%;
+  overflow: scroll;
+  font-size: 18px;
+  text-align: left;
+  margin: 15px;
+    a {
+      text-decoration: none;
+    }
 }
 
 /* ========== BACKGROUND CHANGES ============= */

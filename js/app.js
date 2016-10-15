@@ -22,78 +22,38 @@ $(function(){
 //CLOCK
 //========
 
-$(function(){
+function updateClock ()
+ 	{
+ 	var currentTime = new Date ( );
+  	var currentHours = currentTime.getHours ( );
+  	var currentMinutes = currentTime.getMinutes ( );
+  	var currentSeconds = currentTime.getSeconds ( );
+
+  	// Pad the minutes and seconds with leading zeros, if required
+  	currentMinutes = ( currentMinutes < 10 ? "0" : "" ) + currentMinutes;
+  	currentSeconds = ( currentSeconds < 10 ? "0" : "" ) + currentSeconds;
+
+  	// Choose either "AM" or "PM" as appropriate
+  	var timeOfDay = ( currentHours < 12 ) ? "AM" : "PM";
+
+  	// Convert the hours component to 12-hour format if needed
+  	currentHours = ( currentHours > 12 ) ? currentHours - 12 : currentHours;
+
+  	// Convert an hours component of "0" to "12"
+  	currentHours = ( currentHours == 0 ) ? 12 : currentHours;
+
+  	// Compose the string for display
+  	var currentTimeString = currentHours + ":" + currentMinutes;
 
 
-function hhmmss(hour, min, sec){
-  var hText = ""
-  var mText = ""
+   	$(".clock").html(currentTimeString);
 
-  if(hour == 1){
-    hText = ""
-  }
-  if(min == 1){
-    mText = ""
-  }
-  if(hour && min){ //if hour +min is true (Without stating the variable, it always defaults to true)
-    return hour + ":" + min;
-  }
-  if(!hour && min){ //if hours are false, minutes are true, seconds are true. Bang (!) equals not true
-    return min + mText + ":";
-  }
-  if(hour && !min){ //if (hour == true && min == false && sec == true)
-    return hour + hText + ":";
-  }
-  if(hour && min ){
-    return hour + hText + ":" + min + mText;
-  }
+ }
 
-}
-
-setInterval(function(){
-  var hours = new Date().getHours();
-	var hours = (hours+24)%24;
-	var minutes = new Date().getMinutes();
-	var mid='am';
-	if(hours==0){ //At 00 hours we need to show 12 am
-	hours=12;
-	}
-	else if(hours>12)
-	{
-	hours=hours%12;
-	mid='pm';
-	}
-    $('.clock').text(  hhmmss( hours,
-		minutes, mid )) //replace the .hhmmss class with text pulled from the computer clock, and adhering to the format of the hhmmss function
-
-
-},1000)
-
-
-})
-
-/*
-
-$('.clock').text(function () {
-    var hours = new Date().getHours();
-    var hours = (hours+24)%24;
-		var minutes = new Date().getMinutes();
-    var mid='am';
-    if(hours==0){ //At 00 hours we need to show 12 am
-    hours=12;
-    }
-    else if(hours>12)
-    {
-    hours=hours%12;
-    mid='pm';
-    }
-    alert ('Time now: ' + hours + ":" + minutes + mid);
+$(document).ready(function()
+{
+   setInterval('updateClock()', 1000);
 });
-
-*/
-
-
-
 
 //========================== SCROLLMAGIC =====================================
 
@@ -104,32 +64,51 @@ var scrollMagicController = new ScrollMagic.Controller();
 var monitordivsgrow = new TimelineMax()
 	.to('.monitors',0.5,{
 		backgroundSize:'5000px 5000px',
-		backgroundColor:'red',
+		// backgroundColor:'red',
 		color:'white'
 		})
 	.to('.monitor_left', 0.5, {
 		margin:'26px',
-		height:'505px',
+		height:'485px',
 		width:'245px',
-		backgroundColor:'blue'
+		// backgroundColor:'blue'
 	},0)
 	.to('.monitor_center', 0.5, {
 		margin:'75px',
-		height:'490px',
+		height:'485px',
 		width:'870px',
-		backgroundColor:'red',
-		fontSize:'30pt'
+		// backgroundColor:'red',
 	},0)
 	.to('.monitor_right', 0.5, {
 		margin:'26px',
-		height:'505px',
+		height:'485px',
 		width:'245px',
-		backgroundColor:'green'
-	},0);
+		// backgroundColor:'green'
+	},0)
+	.to('.clock', 0.5, {
+		top:'92.5%',
+		left:'66vw',
+		fontSize:'105px'
+	},0)
+	.to('.piece',0.5, {
+		fontSize:'25pt',
+		fontFamily:'sans-serif'
+	},0)
+	.to('.piece_intro',0.5, {
+		fontSize:'55pt',
+		fontFamily:'Josefin Sans',
+		fontWeight: 300
+	},0)
+	.to('.table_contents a',0.5, {
+		fontSize:'55pt',
+		fontFamily:'Josefin Sans',
+		fontWeight: 300
+	},0)
+	;
 
 var enlarge = new ScrollMagic.Scene({
 triggerElement: '.scroll_dial',
-duration:750
+duration:700
 })
 
 var monitorpin = new ScrollMagic.Scene({
