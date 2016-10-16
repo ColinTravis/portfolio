@@ -1,0 +1,19 @@
+* {
+margin: 0;
+paddin: 0;
+}
+
+body {
+  background-color: #212142;
+}
+
+.text {
+  position: fixed;
+  color: rgb(81, 199, 250);
+  font-size: 40pt;
+  font-weight: 700;
+  font-family: 'Amatic SC', cursive;
+  top: 10%;
+  left: 1%;
+  width: 10%;
+}

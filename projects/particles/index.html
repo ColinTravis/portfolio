@@ -1,0 +1,27 @@
+<html>
+	<head>
+    <link rel="stylesheet" href="css/main.css" media="screen" title="no title">
+	</head>
+	<body>
+		<script>
+		function closeWindow() {
+				window.open('','_parent','');
+				window.close();
+		}
+</script>
+	<style>
+	.return {
+		color: cyan;
+		text-decoration: none;
+		text-transform: uppercase;
+		font-family: monospace;
+		font-size: 16pt;
+		text-align: right;
+	}
+	</style>
+<a class="return" href="javascript:closeWindow();">Return to Computer</a>
+		<div id="particle-canvas"></div>
+		<script type="text/javascript" src="particle-network.min.js"></script>
+    <script src="js/app.js" charset="utf-8"></script>
+	</body>
+</html>

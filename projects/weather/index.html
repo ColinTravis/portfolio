@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="css/main.css" media="screen" title="no title">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:100,300,700" rel="stylesheet">
+  </head>
+
+<body class="flex-main">
+  <script>
+  function closeWindow() {
+      window.open('','_parent','');
+      window.close();
+  }
+</script>
+<style>
+.return {
+  color: cyan;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-family: monospace;
+  font-size: 16pt;
+  text-align: right;
+}
+</style>
+<a class="return" href="javascript:closeWindow();">Return to Computer</a>
+
+  <a href="explain.html">?</a>
+    <div class="flex-body">
+        <div class="flex-content">
+          <!-- <div class="condition">
+            <p>
+              This should be the weather
+            </p>
+          </div> -->
+
+                  <div class="temperature"></div>
+                  <!-- <div class="dewpoint"></div> -->
+
+
+        </div>
+
+
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="js/weather.js" charset="utf-8"></script>
+</body>
+
+</html>

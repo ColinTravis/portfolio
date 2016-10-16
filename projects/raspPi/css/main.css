@@ -1,0 +1,32 @@
+body {
+  background-color: black;
+}
+
+iframe {
+  width: 640px;
+  height: 480px;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    height: 98vh;
+    /*border: 1px red solid;*/
+}
+.camera {
+  align-items: center;
+  justify-content: center;
+  /*border: 1px blue solid;*/
+}
+
+.weather {
+}
+
+.weather p {
+  font-size: 30pt;
+  color: #fff;
+  font-family: 'Press Start 2P';
+}

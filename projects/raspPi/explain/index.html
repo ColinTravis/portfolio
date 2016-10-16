@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="css/main.css" media="screen" title="no title">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,700" rel="stylesheet">
+  </head>
+
+<body class="flex-main">
+    <div class="flex-body">
+        <a href="../">BACK TO SERVER SCREEN</a>
+        <div class="step">
+
+          <div class="explanation">
+            <p>
+              I used a Raspberry Pi 2 due to the small form factor and minimal required accessories.
+            </p>
+          </div>
+          <div class="shots">
+            <img src="images/rasp.jpg" alt="" />
+          </div>
+        </div>
+        <div class="step">
+          <div class="shots">
+            <img src="images/cam.jpg" alt="" />
+          </div>
+          <div class="explanation">
+            <p>
+              A simple Logitech C270 webcam was used to prove it was possible. I plan on using heavier duty, wireless night vision cameras for the final server
+            </p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="shots">
+            <img src="images/motionprog.jpg" alt="" />
+          </div>
+          <div class="explanation">
+            <p>
+              The Raspberry Pi is running Raspbian and using a program called Motion to run the webcam service. Initially, I found the webcam was drawing too much power to remain connected and streaming for longer than a few seconds.
+            </p>
+          </div>
+        </div>
+        <div class="step">
+
+          <div class="explanation">
+            <p>
+              To resolve this, I lowered the number of frames it captures (as it is for surveillance, it doesn’t need to be a perfect stream) .
+              <br>
+              It could be connected using a powered hub, but for this demonstration, I wanted minimal peripherals.
+              <br>
+              The service for the program Motion would end after about 45 seconds once the framerate was adjusted.
+            </p>
+          </div>
+          <div class="shots">
+            <img src="images/greybroke.jpg" alt="" />
+          </div>
+        </div>
+        <div class="step">
+
+          <div class="explanation">
+            <p>
+              The camera would properly function if the service was manually started after being manually stopped. This was not ideal, as the system is designed to run headless (no/minimal peripherals)
+            </p>
+          </div>
+          <div class="shots">
+            <img src="images/servicemanualstart.jpg" alt="" />
+          </div>
+        </div>
+        <div class="step">
+          <div class="explanation">
+            <p>
+              To ensure the webcam service would continue to run, I set a cronjob (UNIX timed event. Think of it like a scheduled action that happens every X amount of time) to reset the service every minute.
+            </p>
+          </div>
+          <div class="shots">
+            <img src="images/cron.jpg" height="100%" alt="" />
+          </div>
+        </div>
+        <div class="step">
+          <div class="shots">
+            <img src="images/servicedied.jpg" alt="" />
+          </div>
+          <div class="explanation">
+            <p>
+              Although this fixed the issue with the webcam turning off and staying off, the downside is when viewed in a browser, it would require a refresh.
+              <br>
+              But the upside is that the server was running properly! By using port forwarding (pointing a connection to a specific device within a network), the camera could even be viewed from an external device from anywhere in the world.
+            </p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="shots">
+            <img src="images/belt.jpg" alt="" />
+          </div>
+          <div class="explanation">
+            <p>
+The webcam could be viewed from other computers on the same network, other computers with internet access, or from the Raspberry Pi itself.
+            </p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="shots">
+            <img src="images/apache.jpg" alt="" />
+          </div>
+          <div class="explanation">
+            <p>
+Installing an Apache server on the Pi allowed it to self-host an HTML file. This was important to ensure a page could be opened without internet connection. But also to allow the site to be accessed from anywhere.
+            </p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="explanation">
+            <p>
+              The HTML file hosted could either be fully coded on the Pi itself, or coded externally and transferred to it.
+            </p>
+          </div>
+          <div class="shots">
+            <img src="images/groundtext.jpg" alt="" />
+          </div>
+        </div>
+        <div class="step">
+          <div class="shots">
+            <img src="images/groundhog.jpg" alt="" />
+          </div>
+          <div class="explanation">
+            <p>
+At this point, all that remained was to code a website that would display the webcam server from the Pi. Using iframe tags pointing to the IP address of the server and positioning them within a site seemed a good way to accomplish this.
+
+There was an early mockup that was going to use multiple iframes positioned either beside or on top of each other, but this seemed wasteful.
+            </p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="shots">
+            <img src="images/iframe.jpg" alt="" />
+          </div>
+          <div class="explanation">
+            <p>
+The downside is that the iframe would still react as a browser had and after the cronjob caused the webcam server to restart, the iframe would display  a broken link.
+
+To resolve this, I wrote a script in java to refresh the iframe every 10 seconds.
+            </p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="shots">
+            <img src="images/positioning.jpg" alt="" />
+          </div>
+          <div class="explanation">
+            <p>
+The iframe properly would refresh as the service would refresh, giving a semi-steady stream for webcam. This can be improved to be a constant stream with the addition of external power to a USB hub, or a wireless camera.
+            </p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="shots">
+            <img src="images/final_site.jpg" alt="" />
+          </div>
+          <div class="explanation">
+            <p>
+              The next step was to add weather.
+
+              Using Yahoo weather APIs with some java proved to be useful in pulling the temperature by zip code.
+
+              To position everything so it was centered and responsive, I used a flexbox display method to encapsulate everything and center it.
+
+              This ensured it would work on a variety of screen sizes, and remain centered.
+            </p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="shots">
+            <img src="images/final.jpg" alt="" />
+          </div>
+          <div class="explanation">
+            <p>
+              The raspberry pi was then mounted to the back of a mounted monitor and cable channel was laid to channel all required cables to the proper place.
+            </p>
+          </div>
+        </div>
+  <a href="../">BACK TO SERVER SCREEN</a>
+
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+</body>
+
+</html>

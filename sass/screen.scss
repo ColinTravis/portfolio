@@ -6,7 +6,7 @@
 @import "compass";
 @font-face {
   font-family: alarmClock;
-  src: url('/fonts/alarm_clock.ttf');
+  src: url('../fonts/alarm_clock.ttf');
 }
 
 html, body {
@@ -70,6 +70,7 @@ html, body {
   background-position: center;
   background-repeat: no-repeat;
   background-size: 1920px 1080px;
+  overflow-x: hidden;
 }
 .monitor_left{
   margin: 16px;
@@ -92,6 +93,7 @@ html, body {
   width: 320px;
   overflow: scroll;
   // position: absolute;
+  overflow-x: hidden;
 }
 .monitor_center.scroll{
   overflow: hidden;
@@ -107,8 +109,8 @@ html, body {
 
 .clock {
   position: absolute;
-  top: 66vh;
-  left: 56vw;
+  top: 64.8vh;
+  left: 57.1vw;
   height: 50px;
   font-size: 42px;
   font-family: 'alarmClock';
@@ -131,6 +133,22 @@ html, body {
   text-align: center;
   font-family: monospace;
   border-bottom: 1px white solid;
+  h2{
+    font-family: 'Josefin Sans';
+    text-align: left;
+    font-size: 24pt;
+    font-weight: 100;
+    color: #27a6d4;
+    margin: 5px 0 0 10px;
+    text-transform: uppercase;
+  }
+  a{
+    &:hover {
+      color: #07ace8;
+    }
+    color: #2d464f;
+    text-transform: lowercase;
+  }
 }
 
 .piece_intro{
@@ -144,13 +162,15 @@ html, body {
 .piece_spacer{
   // border: 2px purple solid;
   margin: 20px 0 20px 0px;
+  font-size: 22px;
 }
 .piece_text {
   // border: 2px orange solid;
-  margin: 5px;
+  margin: 5px 0 5px 10px;
+  padding: 10px;
   font-size: 26px;
   font-family: 'Josefin Sans';
-  font-weight: lighter;
+  font-weight: 300;
     p{
       text-align: left;
       line-height: 120%;
@@ -159,8 +179,8 @@ html, body {
 .piece_image {
   margin: 10px;
   // border: 2px cyan solid;
-  width: 20%;
-  float: left;
+  width: 70%;
+  // float: left;
 }
 .blink {
   animation: blink-animation 1s steps(5, start) infinite;
@@ -180,20 +200,65 @@ html, body {
 .table_contents{
   // border: 2px green solid;
   height: 100%;
-  overflow: scroll;
-  font-size: 18px;
+  overflow: hidden;
+  font-size: 45pt;
   text-align: left;
   margin: 15px;
+  font-family: 'courier new';
     a {
+      opacity: 0;
+      color: #9bf3a9;
       text-decoration: none;
+      &:hover{
+        color: #ffffff;
+      }
+      &:active{
+        color:#3f6144;
+      }
     }
 }
 
 /* ========== BACKGROUND CHANGES ============= */
 
- .day { background: url('http://vignette3.wikia.nocookie.net/darth/images/3/3c/CHEWIE.jpg/revision/latest?cb=20080623000509'); }
-.sunset { background:
-   url('http://www.naturewallpaper.eu/desktopwallpapers/sky/1366x768/after-sunset-sky-1366x768.jpg'); }
+ .day {
+  //  background: url('http://vignette3.wikia.nocookie.net/darth/images/3/3c/CHEWIE.jpg/revision/latest?cb=20080623000509');
+   color: #9bf3a9;
+   text-align: center;
+   font-family: 'Josefin Sans', sans-serif;
+   font-weight: 700;
+   font-size: 60pt;
+   padding: 5px;
+   height: 100vh;
+   // border: 3px solid orange;
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   justify-content: center;
+   background-image: url('../images/flat_room_monitors.svg');
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: 1920px 1080px;
+ }
+.sunset {
+  // background: url('http://www.naturewallpaper.eu/desktopwallpapers/sky/1366x768/after-sunset-sky-1366x768.jpg');
+  color: #9bf3a9;
+  text-align: center;
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 700;
+  font-size: 60pt;
+  padding: 5px;
+  height: 100vh;
+  // border: 3px solid orange;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-image: url('../images/flat_room_monitors.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 1920px 1080px;
+}
+
 .night {
   color: #9bf3a9;
   text-align: center;
@@ -207,7 +272,7 @@ html, body {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  background-image: url('/images/flat_room_monitors.svg');
+  background-image: url('../images/flat_room_monitors.svg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: 1920px 1080px;

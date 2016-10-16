@@ -59,7 +59,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 
 @font-face {
   font-family: alarmClock;
-  src: url("/fonts/alarm_clock.ttf");
+  src: url("../fonts/alarm_clock.ttf");
 }
 html, body {
   height: 100%;
@@ -117,6 +117,7 @@ html, body {
   background-position: center;
   background-repeat: no-repeat;
   background-size: 1920px 1080px;
+  overflow-x: hidden;
 }
 
 .monitor_left {
@@ -136,6 +137,7 @@ html, body {
   height: 155px;
   width: 320px;
   overflow: scroll;
+  overflow-x: hidden;
 }
 
 .monitor_center.scroll {
@@ -151,8 +153,8 @@ html, body {
 
 .clock {
   position: absolute;
-  top: 66vh;
-  left: 56vw;
+  top: 64.8vh;
+  left: 57.1vw;
   height: 50px;
   font-size: 42px;
   font-family: 'alarmClock';
@@ -174,6 +176,22 @@ html, body {
   font-family: monospace;
   border-bottom: 1px white solid;
 }
+.piece h2 {
+  font-family: 'Josefin Sans';
+  text-align: left;
+  font-size: 24pt;
+  font-weight: 100;
+  color: #27a6d4;
+  margin: 5px 0 0 10px;
+  text-transform: uppercase;
+}
+.piece a {
+  color: #2d464f;
+  text-transform: lowercase;
+}
+.piece a:hover {
+  color: #07ace8;
+}
 
 .piece_intro {
   margin: 20px 0 20px 0px;
@@ -185,13 +203,15 @@ html, body {
 
 .piece_spacer {
   margin: 20px 0 20px 0px;
+  font-size: 22px;
 }
 
 .piece_text {
-  margin: 5px;
+  margin: 5px 0 5px 10px;
+  padding: 10px;
   font-size: 26px;
   font-family: 'Josefin Sans';
-  font-weight: lighter;
+  font-weight: 300;
 }
 .piece_text p {
   text-align: left;
@@ -200,8 +220,7 @@ html, body {
 
 .piece_image {
   margin: 10px;
-  width: 20%;
-  float: left;
+  width: 70%;
 }
 
 .blink {
@@ -221,22 +240,59 @@ html, body {
 }
 .table_contents {
   height: 100%;
-  overflow: scroll;
-  font-size: 18px;
+  overflow: hidden;
+  font-size: 45pt;
   text-align: left;
   margin: 15px;
+  font-family: 'courier new';
 }
 .table_contents a {
+  opacity: 0;
+  color: #9bf3a9;
   text-decoration: none;
+}
+.table_contents a:hover {
+  color: #ffffff;
+}
+.table_contents a:active {
+  color: #3f6144;
 }
 
 /* ========== BACKGROUND CHANGES ============= */
 .day {
-  background: url("http://vignette3.wikia.nocookie.net/darth/images/3/3c/CHEWIE.jpg/revision/latest?cb=20080623000509");
+  color: #9bf3a9;
+  text-align: center;
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 700;
+  font-size: 60pt;
+  padding: 5px;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-image: url("../images/flat_room_monitors.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 1920px 1080px;
 }
 
 .sunset {
-  background: url("http://www.naturewallpaper.eu/desktopwallpapers/sky/1366x768/after-sunset-sky-1366x768.jpg");
+  color: #9bf3a9;
+  text-align: center;
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 700;
+  font-size: 60pt;
+  padding: 5px;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-image: url("../images/flat_room_monitors.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 1920px 1080px;
 }
 
 .night {
@@ -251,7 +307,7 @@ html, body {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  background-image: url("/images/flat_room_monitors.svg");
+  background-image: url("../images/flat_room_monitors.svg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: 1920px 1080px;

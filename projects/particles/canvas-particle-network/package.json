@@ -1,0 +1,95 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "canvas-particle-network",
+        "scope": null,
+        "escapedName": "canvas-particle-network",
+        "name": "canvas-particle-network",
+        "rawSpec": "",
+        "spec": "latest",
+        "type": "tag"
+      },
+      "/Users/ctravis916/Documents/OneDrive/Classes/MCAD/Fall_16/Advanced_Web_+_Screen/particles"
+    ]
+  ],
+  "_from": "canvas-particle-network@latest",
+  "_id": "canvas-particle-network@1.5.0",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/canvas-particle-network",
+  "_nodeVersion": "4.2.4",
+  "_npmOperationalInternal": {
+    "host": "packages-9-west.internal.npmjs.com",
+    "tmp": "tmp/canvas-particle-network-1.5.0.tgz_1456335479069_0.5426958387251943"
+  },
+  "_npmUser": {
+    "name": "julianlaval",
+    "email": "julian_laval@live.com"
+  },
+  "_npmVersion": "2.14.12",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "canvas-particle-network",
+    "scope": null,
+    "escapedName": "canvas-particle-network",
+    "name": "canvas-particle-network",
+    "rawSpec": "",
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/canvas-particle-network/-/canvas-particle-network-1.5.0.tgz",
+  "_shasum": "410e11af7b780b948cc75442a67ae6ff738d5f4a",
+  "_shrinkwrap": null,
+  "_spec": "canvas-particle-network",
+  "_where": "/Users/ctravis916/Documents/OneDrive/Classes/MCAD/Fall_16/Advanced_Web_+_Screen/particles",
+  "author": {
+    "name": "Julian Laval",
+    "email": "hello@julianlaval.com"
+  },
+  "bugs": {
+    "url": "https://github.com/JulianLaval/canvas-particle-network/issues"
+  },
+  "dependencies": {},
+  "description": "Simple animated particle network using Canvas and JavaScript",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-uglify": "^0.11.1",
+    "grunt-eslint": "^18.0.0",
+    "load-grunt-tasks": "^3.2.0"
+  },
+  "directories": {},
+  "dist": {
+    "shasum": "410e11af7b780b948cc75442a67ae6ff738d5f4a",
+    "tarball": "https://registry.npmjs.org/canvas-particle-network/-/canvas-particle-network-1.5.0.tgz"
+  },
+  "gitHead": "7cfd75c67343e48bdbd2aaf5ab5e1659a9268f20",
+  "homepage": "https://github.com/JulianLaval/canvas-particle-network#readme",
+  "keywords": [
+    "canvas",
+    "particle",
+    "network",
+    "data visualisation"
+  ],
+  "license": "MIT",
+  "main": "particle-network.js",
+  "maintainers": [
+    {
+      "name": "julianlaval",
+      "email": "julian_laval@live.com"
+    }
+  ],
+  "name": "canvas-particle-network",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JulianLaval/canvas-particle-network.git"
+  },
+  "scripts": {},
+  "version": "1.5.0"
+}

@@ -11,11 +11,10 @@ $(function(){
 
 	else if (n > 16 && n < 19)
 	  // If time is between 4PM – 7PM sunset theme to ‘body’
-	  document.body.className = "sunset";
-	else
+    $('.monitors').toggleClass("sunset");
+		else
 	  // Else use ‘day’ theme
-	  document.body.className = "day";
-});
+    $('.monitors').toggleClass("day");});
 //==================END: CHANGE DIV BASED ON TIME OF DAY==================
 
 //=========
@@ -65,7 +64,7 @@ var monitordivsgrow = new TimelineMax()
 	.to('.monitors',0.5,{
 		backgroundSize:'5000px 5000px',
 		// backgroundColor:'red',
-		color:'white'
+		color:'black'
 		})
 	.to('.monitor_left', 0.5, {
 		margin:'26px',
@@ -75,9 +74,9 @@ var monitordivsgrow = new TimelineMax()
 	},0)
 	.to('.monitor_center', 0.5, {
 		margin:'75px',
-		height:'485px',
+		height:'510px',
 		width:'870px',
-		// backgroundColor:'red',
+		backgroundColor:'white'
 	},0)
 	.to('.monitor_right', 0.5, {
 		margin:'26px',
@@ -86,8 +85,8 @@ var monitordivsgrow = new TimelineMax()
 		// backgroundColor:'green'
 	},0)
 	.to('.clock', 0.5, {
-		top:'92.5%',
-		left:'66vw',
+		top:'88.5%',
+		left:'69vw',
 		fontSize:'105px'
 	},0)
 	.to('.piece',0.5, {
@@ -99,16 +98,20 @@ var monitordivsgrow = new TimelineMax()
 		fontFamily:'Josefin Sans',
 		fontWeight: 300
 	},0)
+	.to('.piece_spacer',0.5,{
+		fontSize:'0px'
+	},0)
 	.to('.table_contents a',0.5, {
-		fontSize:'55pt',
-		fontFamily:'Josefin Sans',
-		fontWeight: 300
+		fontSize:'45pt',
+		opacity:'1',
+		// fontFamily:'Josefin Sans',
+		fontWeight: 100
 	},0)
 	;
 
 var enlarge = new ScrollMagic.Scene({
 triggerElement: '.scroll_dial',
-duration:700
+duration:670
 })
 
 var monitorpin = new ScrollMagic.Scene({

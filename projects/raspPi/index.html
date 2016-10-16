@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Remote Surveillance Server</title>
+    <link rel="stylesheet" href="css/main.css" media="screen" title="no title" charset="utf-8">
+    <link href='https://fonts.googleapis.com/css?family=Nixie+One|Press+Start+2P&effect=3d' rel='stylesheet' type='text/css'>
+    <script>
+    window.setInterval("reloadIFrame();", 10000);
+    function reloadIFrame() {
+     document.getElementById("Iframe").src="http://192.168.1.8:8081";
+    }
+    </script>
+  </head>
+  <body>
+    <script>
+    function closeWindow() {
+        window.open('','_parent','');
+        window.close();
+    }
+  </script>
+  <style>
+  .return {
+    color: cyan;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: monospace;
+    font-size: 16pt;
+    text-align: right;
+  }
+  </style>
+  <a class="return" href="javascript:closeWindow();">Return to Computer</a>
+  <br>
+  <a class="return" href="explain">Explanation</a>
+
+  <div class="container">
+    <!-- WEATHER CODE ==========
+    ===================================-->
+      <div class="weather">
+
+        <p class="font-effect-3d">Minneapolis:<span id="minneapolis"></span></p>
+    <script type="text/javascript">
+    function temp( f )
+    {
+        return f + "&degF" ;
+    }
+    function weatherMinneapolis(o)
+    {
+        document.getElementById("minneapolis").innerHTML =
+            temp( o.query.results.channel.item.condition.temp );
+    }
+    </script>
+    <script type="text/javascript"
+       src="http://query.yahooapis.com/v1/public/yql?q=select%20item%20from%20weather.forecast%20where%20location%3D%2255403%22&format=json&callback=weatherMinneapolis"></script>
+     </div>
+    <!-- END WEATHER CODE ===============-->
+    <div class="camera">
+      <iframe id="Iframe"
+      src="http://localhost:8081"
+      frameborder=0>
+      </iframe>
+    </div>
+  </div>
+
+  </body>
+</html>
