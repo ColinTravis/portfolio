@@ -15,6 +15,27 @@ $(function(){
 		else
 	  // Else use ‘day’ theme
     $('.monitors').toggleClass("day");});
+
+//==================REFRESH AT TIME==================
+
+		function refreshAt(hours, minutes, seconds) {
+		    var now = new Date();
+		    var then = new Date();
+
+		    if(now.getHours() > hours ||
+		       (now.getHours() == hours && now.getMinutes() > minutes) ||
+		        now.getHours() == hours && now.getMinutes() == minutes && now.getSeconds() >= seconds) {
+		        then.setDate(now.getDate() + 1);
+		    }
+		    then.setHours(hours);
+		    then.setMinutes(minutes);
+		    then.setSeconds(seconds);
+
+		    var timeout = (then.getTime() - now.getTime());
+		    setTimeout(function() { window.location.reload(true); }, timeout);
+		}
+
+
 //==================END: CHANGE DIV BASED ON TIME OF DAY==================
 
 //=========
@@ -28,18 +49,22 @@ function updateClock ()
   	var currentMinutes = currentTime.getMinutes ( );
   	var currentSeconds = currentTime.getSeconds ( );
 
+		// Convert the hours component to 12-hour format if needed
+  	currentHours = ( currentHours > 12 ) ? currentHours - 12 : currentHours;
+
+		// Convert an hours component of "0" to "12"
+		currentHours = ( currentHours == 0 ) ? 12 : currentHours;
+
   	// Pad the minutes and seconds with leading zeros, if required
+		currentHours = ( currentHours < 10 ? "0" : "" ) + currentHours;
   	currentMinutes = ( currentMinutes < 10 ? "0" : "" ) + currentMinutes;
   	currentSeconds = ( currentSeconds < 10 ? "0" : "" ) + currentSeconds;
 
   	// Choose either "AM" or "PM" as appropriate
   	var timeOfDay = ( currentHours < 12 ) ? "AM" : "PM";
 
-  	// Convert the hours component to 12-hour format if needed
-  	currentHours = ( currentHours > 12 ) ? currentHours - 12 : currentHours;
 
-  	// Convert an hours component of "0" to "12"
-  	currentHours = ( currentHours == 0 ) ? 12 : currentHours;
+
 
   	// Compose the string for display
   	var currentTimeString = currentHours + ":" + currentMinutes;
@@ -86,7 +111,7 @@ var monitordivsgrow = new TimelineMax()
 	},0)
 	.to('.clock', 0.5, {
 		top:'88.5%',
-		left:'69vw',
+		left:'66vw',
 		fontSize:'105px'
 	},0)
 	.to('.piece',0.5, {
@@ -126,5 +151,5 @@ pushFollowers: false
 enlarge.setTween(monitordivsgrow)
 .setClassToggle('.monitor_center','scroll')
 enlarge.addTo(scrollMagicController)
-enlarge.addIndicators();
+// enlarge.addIndicators();
 });

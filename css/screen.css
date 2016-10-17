@@ -154,7 +154,7 @@ html, body {
 .clock {
   position: absolute;
   top: 64.8vh;
-  left: 57.1vw;
+  left: 56vw;
   height: 50px;
   font-size: 42px;
   font-family: 'alarmClock';
@@ -271,7 +271,7 @@ html, body {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  background-image: url("../images/flat_room_monitors.svg");
+  background-image: url("../images/flat_room_monitors_day.svg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: 1920px 1080px;
@@ -289,7 +289,7 @@ html, body {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  background-image: url("../images/flat_room_monitors.svg");
+  background-image: url("../images/flat_room_monitors_sunset.svg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: 1920px 1080px;
@@ -307,7 +307,7 @@ html, body {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  background-image: url("../images/flat_room_monitors.svg");
+  background-image: url("../images/flat_room_monitors_night.svg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: 1920px 1080px;
